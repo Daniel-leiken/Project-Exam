@@ -282,6 +282,10 @@ input[type="submit"] {
   .hero {
     padding-top: 70px;
   }
+  
+  h1 {
+    font-size: 16px;
+  }
     .navbar-logo img {
       max-width: 60%;
       min-width: 300px;
@@ -396,7 +400,7 @@ input[type="submit"] {
   width: 100%;
 }
 
-.nav-container {
+.nav-container {p
   display: flex;
   justify-content: space-between;
   align-items: center;
