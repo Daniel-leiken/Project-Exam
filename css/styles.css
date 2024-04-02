@@ -121,6 +121,7 @@ a {
 }
 .container {
   display:flex;
+  flex-direction: column;
 }
 /* Form */
 form {
@@ -166,6 +167,32 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
+/* Posts */
+
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  gap: 20px; /* Gap between columns */
+}
+
+.post {
+  padding: 20px;
+}
+
+.post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.post h2 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.post p {
+  margin-bottom: 20px;
+}
 /* Added styles for responsive layout */
 
 input[type="text"],
@@ -276,6 +303,11 @@ input[type="submit"] {
 footer p {
   color: #FFFFFF;
 }
+
+.goback {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
   /* Leaflet Map */
 #map {
   height: 300px;
@@ -287,6 +319,51 @@ footer p {
 .leaflet-container img {
   filter: grayscale(100%);
 }
+
+/* Slider*/
+.slider {
+  display: flex;
+  justify-content: center; /* Center the posts horizontally */
+  padding: 0 20px; /* Add padding to the sides */
+}
+
+.post-slider {
+  flex: 0 0 calc(33.333% - 40px); /* Adjust the width of each post */
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  min-width: 300px; /* Set a minimum width for the post */
+}
+
+.post-slider img {
+  border-radius: 8px;
+  width: 100%; /* Ensure images fill the post container */
+  height: auto;
+}
+
+.dots {
+  display: flex;
+  justify-content: center; /* Center the dots horizontally */
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+
+
+
 
   /* Responsive Layout */
 
@@ -369,7 +446,18 @@ footer p {
       border-radius: 25px;
     }
 
+    .posts-container {
+      display: block; /* Change to block layout on smaller screens */
+    }
+  
+    .post {
+      width: calc(100% - 20px); /* One post per row on smaller screens */
+      margin-bottom: 20px; /* Add bottom margin to separate posts */
+    }
+
   }
+
+
   /* Tablet */
   @media only screen and (min-width: 481px) and (max-width: 991px) {
     .navbar-links {
