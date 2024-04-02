@@ -411,14 +411,16 @@ footer p {
     padding: 75px 25px 0px 25px;
     height: 500px;
   }
-  
+  h1 {
+    font-size: 30px;
+  }
   .h1-hero {
     font-size: 35px;
     padding: 0px;
   }
     .navbar-logo img {
-      max-width: 60%;
-      min-width: 300px;
+      max-width: 40%;
+      min-width: 220px;
       height: auto;
     }
     .left, .right {
