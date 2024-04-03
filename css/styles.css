@@ -434,8 +434,6 @@ footer p {
     width: 100%
   }
   
-
-
   main {
     display: flex;
     max-width: 1300px;
@@ -454,7 +452,7 @@ footer p {
       font-size: 12px;
     }
     .container {
-      padding: 20px;
+      flex-wrap: nowrap;
   }
 
     .div-left {
@@ -471,42 +469,41 @@ footer p {
     }
 
     .posts-container {
-      display: block; /* Change to block layout on smaller screens */
+      display: grid;
+      grid-template-columns: repeat(1, 1fr); /* Three columns with equal width */
+      text-align: center;
+      overflow: hidden;
     }
   
     .post {
-      width: calc(100% - 20px); /* One post per row on smaller screens */
-      margin-bottom: 20px; /* Add bottom margin to separate posts */
+      display: block; /* Display posts in-line */
+      width: calc(80% - 0px); /* Adjust width to fit within the container */
+      margin: 0 auto; /* Add margin to separate posts */
     }
 
-     /* Adjust the slider width to fit the screen */
+
   #slider {
     width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
-    white-space: nowrap; /* Ensure that the posts stay in a single row */
+    white-space: wrap; /* Ensure that the posts stay in a single row */
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
   }
 
-  /* Adjust the width and margins of each post to fit within the screen */
+
   .post-slider {
-    width: calc(100% - 20px); /* 20px margin on each side */
-    margin: 0 10px; /* Add 10px margin on each side */
+    width: calc(100% - 0px); /* 20px margin on each side */
+    margin: 10px; /* Add 10px margin on each side */
+
   }
 
-  /* Center the dots horizontally */
   #dots {
     text-align: center;
   }
 
-  /* Adjust the font size and padding of the dots */
   .dot {
     font-size: 16px;
     padding: 5px;
   }
 }
-
-  }
-
 
   /* Tablet */
   @media only screen and (min-width: 481px) and (max-width: 991px) {
