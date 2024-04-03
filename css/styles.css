@@ -296,7 +296,7 @@ input[type="submit"] {
     display: none;
   }
 .container {
-    padding: 25px;
+    padding: 20px;
 }
   .flex-container {
     display: flex;
@@ -443,8 +443,8 @@ footer p {
     flex-wrap: wrap;
     margin:auto;
     padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
     padding-bottom: 20px;
   }
 
@@ -557,7 +557,6 @@ footer p {
 
 .container {
   max-width: 1050px;
-  width: 90%;
   margin: auto;
 }
 
