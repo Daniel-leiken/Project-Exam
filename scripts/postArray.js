@@ -1,4 +1,4 @@
-const url = "https://wordpress-561851-4306624.cloudwaysapps.com/wp-json/wp/v2/posts?_embed";
+const url = "https://wordpress-561851-4306624.cloudwaysapps.com/wp-json/wp/v2/posts?_embed&_orderby=date&_order=desc";
 const postContainer = document.querySelector(".posts");
 const spinner = document.querySelector(".spinner");
 
