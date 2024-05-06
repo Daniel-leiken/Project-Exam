@@ -1,10 +1,11 @@
 function validateForm() {
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
     var message = document.getElementById("message").value;
 
-    // Check if name, email, and message fields are not empty
-    if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+    // Check if name, email, subject, and message fields are not empty
+    if (name.trim() === '' || email.trim() === '' || subject.trim() === '' || message.trim() === '') {
         alert("Please fill in all fields.");
         return false;
     }

@@ -79,15 +79,18 @@
           <form action="mailto:info@cryptocanvas.com" method="post" enctype="text/plain">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
-          
+        
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
-          
+        
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter the subject" required><br><br>
+        
             <label for="message">Message:</label><br>
             <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message" required></textarea><br><br>
-          
-            <input type="submit" value="Submit">
-          </form>
+        
+            <input type="submit" value="Submit" onclick="return validateForm()">
+        </form>
           <script src="formValidation.js"></script>
         </div>
 
