@@ -1,25 +1,12 @@
-const url = "https://wordpress-561851-4306624.cloudwaysapps.com/wp-json/wp/v2/posts?_embed&_orderby=date&_order=desc";
 const slider = document.getElementById('slider');
 const dotsContainer = document.getElementById('dots');
-let currentSlideIndex = 0;
-const spinner = document.querySelector(".spinner");
 
-async function fetchPosts() {
-    try {
-        spinner.style.display = "block"; // Show spinner while fetching data
-
-        const response = await fetch(url);
-        const posts = await response.json();
-        displayPosts(posts);
-        createDots(Math.ceil(posts.length / 3)); // Calculate number of dots based on number of posts
-
-        spinner.style.display = "none"; // Hide spinner after fetching data
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-    }
+function renderSlider(posts) {
+    createSliderHTML(posts);
+    createDotsHTML(posts);
 }
 
-function displayPosts(posts) {
+function createSliderHTML(posts) {
     slider.innerHTML = '';
     posts.forEach((post, index) => {
         const featuredImage = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0];
@@ -38,7 +25,8 @@ function displayPosts(posts) {
     });
 }
 
-function createDots(numDots) {
+function createDotsHTML(posts) {
+    const numDots = Math.ceil(posts.length / 3)
     for (let i = 0; i < numDots; i++) {
         const dot = document.createElement('span');
         dot.classList.add('dot');
@@ -64,4 +52,4 @@ function showSlide() {
     });
 }
 
-fetchPosts();
+

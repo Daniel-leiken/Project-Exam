@@ -169,28 +169,28 @@ input[type="submit"]:hover {
 
 /* Posts */
 
-.posts-container {
+.post-array {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
   gap: 20px; /* Gap between columns */
 }
 
-.post {
+.post-array-item {
   padding: 20px;
 }
 
-.post img {
+.post-array-item img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-.post h2 {
+.post-array-item h2 {
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-.post p {
+.post-array-item p {
   margin-bottom: 20px;
 }
 
@@ -468,14 +468,14 @@ footer p {
       border-radius: 25px;
     }
 
-    .posts-container {
+    .post-array {
       display: grid;
       grid-template-columns: repeat(1, 1fr); /* Three columns with equal width */
       text-align: center;
       overflow: hidden;
     }
   
-    .post {
+    .post-array-item {
       display: block; /* Display posts in-line */
       width: calc(80% - 0px); /* Adjust width to fit within the container */
       margin: 0 auto; /* Add margin to separate posts */
@@ -544,6 +544,10 @@ footer p {
   height:auto;
   width: 100%;
   border-radius: 25px;
+}
+.post-array {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 }
 

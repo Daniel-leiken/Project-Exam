@@ -65,11 +65,16 @@
         <div>
           <h1>List of all blogposts</h1>
         </div>
-        <div class="spinner"></div>
-        <div class="posts-container">
+        
+        <div class="post-array" id="post-array">
             <!-- Posts will be dynamically inserted here -->
           </div>
-    <script src="scripts/postArray.js"></script>
+          <div class="spinner"></div>
+          <button class="load-more-button" onclick="NextPage()">Load more</button>
+          <div class="no-more-posts" style="display: none;">No more blog posts</div>
+        <script src="scripts/postArray.js"></script>
+        <script src="scripts/getPosts.js"></script>
+        <script src="scripts/allBlogPosts.js"></script>
       </section>
     </main>
     

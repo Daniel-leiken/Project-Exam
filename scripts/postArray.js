@@ -1,59 +1,37 @@
-const url = "https://wordpress-561851-4306624.cloudwaysapps.com/wp-json/wp/v2/posts?_embed&_orderby=date&_order=desc";
-const postContainer = document.querySelector(".posts");
-const spinner = document.querySelector(".spinner");
+const postArray = document.getElementById("post-array");
 
-async function getPosts() {
-  try {
-    // Show spinner while fetching data
-    spinner.style.display = "block";
-
-    const response = await fetch(url);
-    const posts = await response.json();
-    createHTML(posts);
-
-    // Hide spinner after fetching data
-    spinner.style.display = "none";
-  } catch (error) {
-    console.log(error);
-  }
+function renderPostArray(posts) {
+  createPostArrayHTML(posts);
 }
 
-getPosts();
 
-function createHTML(posts) {
-  const postsContainer = document.querySelector('.posts-container');
+function createPostArrayHTML(posts) {
 
   posts.forEach(function (post) {
     if (post._links && post._links["wp:featuredmedia"]) {
-      fetch(post._links["wp:featuredmedia"][0].href)
-        .then(response => response.json())
-        .then(featuredMedia => {
-          const featuredImageUrl = featuredMedia.source_url;
+      const featuredImage = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0];
+      const imageUrl = featuredImage ? featuredImage.source_url : 'placeholder.jpg'; 
 
-          // Create post element
-          const postElement = document.createElement('div');
-          postElement.classList.add('post');
+      // Create post element
+      const postElement = document.createElement('div');
+      postElement.classList.add('post-array-item');
 
-          // Create post content
-          postElement.innerHTML = `
-            <a href="Blog post specific.html?id=${post.id}">
-              <img src="${featuredImageUrl}" alt="${post.title.rendered}">
-              <p>${post.date}
-              <h2>${post.title.rendered}</h2>
-              <p>${post.excerpt.rendered}</p>
-            </a>`;
+      // Create post content
+      postElement.innerHTML = `
+        <a href="Blog post specific.html?id=${post.id}">
+          <img src="${imageUrl}" alt="${post.title.rendered}">
+          <p>${post.date}
+          <h2>${post.title.rendered}</h2>
+          <p>${post.excerpt.rendered}</p>
+        </a>`;
 
-          // Append post element to posts container
-          postsContainer.appendChild(postElement);
-        })
-        .catch(error => {
-          console.error('Error fetching featured image:', error);
-        });
+      // Append post element to posts container
+      postArray.appendChild(postElement);
     } else {
       // Handle case where featured image link is missing
       // Create post element
       const postElement = document.createElement('div');
-      postElement.classList.add('post');
+      postElement.classList.add('post-array-item');
 
       // Create post content
       postElement.innerHTML = `
@@ -63,7 +41,7 @@ function createHTML(posts) {
         </a>`;
 
       // Append post element to posts container
-      postsContainer.appendChild(postElement);
+      postArray.appendChild(postElement);
     }
   });
 }
