@@ -473,6 +473,14 @@ footer p {
     padding-bottom: 20px;
   }
 
+  .button {
+    padding-bottom: 20px;
+  }
+
+  .load-more-button {
+    padding-bottom: 20px;
+  }
+
     footer {
       font-size: 12px;
     }
