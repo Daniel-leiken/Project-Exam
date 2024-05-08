@@ -1,12 +1,22 @@
 const postArray = document.getElementById("post-array");
 
 function renderPostArray(posts) {
-  createPostArrayHTML(posts);
+  try {
+    createPostArrayHTML(posts);
+  } catch (error) {
+    console.error('Error rendering post array:', error);
+    displayErrorMessage();
+  }
 }
 
+function displayErrorMessage() {
+  const errorMessage = document.createElement('div');
+  errorMessage.textContent = 'An error occurred while rendering the blog posts. Please try again later.';
+  errorMessage.classList.add('error-message');
+  postArray.appendChild(errorMessage);
+}
 
 function createPostArrayHTML(posts) {
-
   posts.forEach(function (post) {
     if (post._links && post._links["wp:featuredmedia"]) {
       const featuredImage = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0];
@@ -45,3 +55,4 @@ function createPostArrayHTML(posts) {
     }
   });
 }
+

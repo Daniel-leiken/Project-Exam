@@ -1,14 +1,17 @@
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
+const productContainer = document.querySelector(".singlePost");
 
 if (id) {
   const url = `https://wordpress-561851-4306624.cloudwaysapps.com/wp-json/wp/v2/posts/${id}`;
-  const productContainer = document.querySelector(".singlePost");
 
   async function getSinglePost() {
     try {
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch product');
+      }
       const product = await response.json();
 
       // Fetch featured image URL separately
@@ -16,7 +19,8 @@ if (id) {
 
       createHTML(product, featuredImageUrl);
     } catch (error) {
-      console.log(error);
+      console.error('Error fetching single post:', error);
+      displayErrorMessage();
     }
   }
 
@@ -39,4 +43,12 @@ if (id) {
   }
 } else {
   console.error("Product ID not found in the URL");
+  displayErrorMessage();
+}
+
+function displayErrorMessage() {
+  const errorMessage = document.createElement('div');
+  errorMessage.textContent = 'An error occurred while loading the post. Please try again later.';
+  errorMessage.classList.add('error-message');
+  productContainer.appendChild(errorMessage);
 }
