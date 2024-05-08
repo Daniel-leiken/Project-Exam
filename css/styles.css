@@ -457,6 +457,10 @@ footer p {
   .column {
     width: 100%
   }
+
+  .post img {
+    width: 100%;
+  }
   
   main {
     display: flex;
