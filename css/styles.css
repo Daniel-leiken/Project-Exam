@@ -596,7 +596,7 @@ footer p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 62px;
+  height: 64px;
 }
 
 .navbar .menu-items {
@@ -622,7 +622,7 @@ footer p {
 .nav-container {
   display: block;
   position: relative;
-  height: 60px;
+  height: 42px;
 }
 
 .nav-container .checkbox {
