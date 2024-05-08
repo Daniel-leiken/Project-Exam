@@ -147,6 +147,7 @@ a {
 .container {
   display:flex;
   flex-direction: column;
+  padding: 20px 20px 40px 20px;
 }
 /* Form */
 form {
@@ -320,9 +321,7 @@ input[type="submit"] {
   .navbar-toggle {
     display: none;
   }
-.container {
-    padding: 20px;
-}
+
   .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -470,14 +469,6 @@ footer p {
     padding-top: 10px;
     padding-left: 0px;
     padding-right: 0px;
-    padding-bottom: 20px;
-  }
-
-  .button {
-    padding-bottom: 20px;
-  }
-
-  .load-more-button {
     padding-bottom: 20px;
   }
 
