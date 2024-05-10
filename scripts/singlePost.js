@@ -35,17 +35,11 @@ if (id) {
   function createHTML(product, featuredImageUrl) {
     productContainer.innerHTML += `
       <div class="post">
-        <img class="post-image" src="${featuredImageUrl}" alt="${product.title.rendered}">
+        <img class="post-image" src="${featuredImageUrl}" alt="${product.title.rendered}" onclick="openModal('${featuredImageUrl}')">
         <p>${product.date}</p>
         <h2>${product.title.rendered}</h2>
         <p>${product.content.rendered}</p>
       </div>`;
-    
-    // Add event listener to open modal when image is clicked
-    const postImage = document.querySelector('.post-image');
-    postImage.addEventListener('click', () => {
-      openModal(featuredImageUrl);
-    });
   }
 } else {
   console.error("Product ID not found in the URL");
@@ -65,7 +59,7 @@ const modalImage = document.getElementById('modalImage');
 
 // Function to open the modal
 function openModal(imageUrl) {
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
   modalImage.src = imageUrl;
 }
 
@@ -74,10 +68,4 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-
-// Close the modal when user clicks on the close button
-const closeBtn = document.querySelector('.close');
-closeBtn.onclick = function() {
-  modal.style.display = "none";
 }
