@@ -577,12 +577,14 @@ border-radius: 25px;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 }
-}
 
 .h1-hero {
   padding-top: 40px;
   font-size: 40px;
 }
+}
+
+
 
 .hero p {
   font-size: 14px;
